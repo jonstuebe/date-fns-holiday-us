@@ -1,6 +1,6 @@
 {
   "name": "date-fns-holiday-us",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jon Stuebe",
   "license": "MIT",
   "main": "dist/index.js",
