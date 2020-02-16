@@ -123,14 +123,14 @@ export function getGoodFriday(year: number) {
   return addDays(getEaster(year), -2);
 }
 
-export function getHolidays(
-  year: number
-): {
+export type Holidays = {
   [K in Holiday]: {
     date: Date;
     bankHoliday: boolean;
   };
-} {
+};
+
+export function getHolidays(year: number): Holidays {
   return {
     newYearsDay: {
       date: getNewYearsDay(year),

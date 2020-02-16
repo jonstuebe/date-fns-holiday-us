@@ -14,7 +14,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "build:docs": "typedoc --excludeNotExported --out docs src",
+    "prepare": "tsdx build && build:docs"
   },
   "peerDependencies": {
     "date-fns": ">= 2.x.x"
@@ -36,6 +37,7 @@
     "husky": "^4.2.3",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
+    "typedoc": "^0.16.9",
     "typescript": "^3.7.5"
   }
 }
