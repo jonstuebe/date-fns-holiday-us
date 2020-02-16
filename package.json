@@ -15,7 +15,7 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "build:docs": "typedoc --excludeNotExported --out docs src",
-    "prepare": "tsdx build && build:docs"
+    "prepare": "tsdx build && yarn build:docs"
   },
   "peerDependencies": {
     "date-fns": ">= 2.x.x"
