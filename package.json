@@ -6,6 +6,15 @@
   "main": "dist/index.js",
   "module": "dist/date-fns-holiday-us.esm.js",
   "typings": "dist/index.d.ts",
+  "keywords": [
+    "date-fns",
+    "date",
+    "holiday",
+    "holidays"
+  ],
+  "repository": {
+    "url": "https://github.com/jonstuebe/date-fns-holiday-us"
+  },
   "files": [
     "dist"
   ],
