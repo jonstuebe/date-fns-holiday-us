@@ -1,5 +1,6 @@
 {
   "name": "date-fns-holiday-us",
+  "description": "The purpose of this project is to give an interface to work with holidays using date-fns",
   "version": "0.1.1",
   "author": "Jon Stuebe",
   "license": "MIT",
@@ -23,8 +24,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "build:docs": "typedoc --excludeNotExported --out docs src",
-    "prepare": "tsdx build && yarn build:docs"
+    "docs": "node scripts/docs",
+    "prepare": "tsdx build && yarn docs"
   },
   "peerDependencies": {
     "date-fns": ">= 2.x.x"
@@ -42,11 +43,14 @@
   },
   "devDependencies": {
     "@types/jest": "^25.1.2",
+    "chalk": "^3.0.0",
     "date-fns": "^2.9.0",
     "husky": "^4.2.3",
+    "rimraf": "^3.0.2",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typedoc": "^0.16.9",
+    "typedoc-plugin-markdown": "^2.2.16",
     "typescript": "^3.7.5"
   }
 }
