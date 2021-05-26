@@ -227,11 +227,15 @@ export function getBankHolidays(
   }, {});
 }
 
-export function isHoliday(date: Date): boolean {
-  const holidays = getHolidays(getYear(date));
+export function isHoliday(date: Date, onlyBankHolidays = false): boolean {
+  const holidays = (onlyBankHolidays ? getBankHolidays : getHolidays)(getYear(date));
   return (
     Object.keys(holidays).filter(holidayName => {
       return isEqual(date, holidays[holidayName as Holiday].date);
     }).length > 0
   );
+}
+
+export function isBankHoliday(date: Date): boolean {
+  return isHoliday(date, true);
 }
