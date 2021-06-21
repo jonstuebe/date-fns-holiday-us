@@ -227,11 +227,22 @@ export function getBankHolidays(
   }, {});
 }
 
-export function isHoliday(date: Date): boolean {
-  const holidays = getHolidays(getYear(date));
+function isInHolidayList(
+  date: Date,
+  getHolidayList: (year: number) => { [key: string]: { date: Date } }
+): boolean {
+  const holidays = getHolidayList(getYear(date));
   return (
     Object.keys(holidays).filter(holidayName => {
-      return isEqual(date, holidays[holidayName as Holiday].date);
+      return isEqual(date, holidays[holidayName].date);
     }).length > 0
   );
+}
+
+export function isHoliday(date: Date): boolean {
+  return isInHolidayList(date, getHolidays);
+}
+
+export function isBankHoliday(date: Date): boolean {
+  return isInHolidayList(date, getBankHolidays);
 }
