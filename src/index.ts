@@ -19,7 +19,8 @@ export type Holiday =
   | "newYearsDay"
   | "fathersDay"
   | "memorialDay"
-  | "goodFriday";
+  | "goodFriday"
+  | "juneteenth";
 
 export function getHalloween(year: number) {
   return new Date(year, 9, 31);
@@ -31,6 +32,10 @@ export function getValentinesDay(year: number) {
 
 export function getMothersDay(year: number) {
   return addWeeks(getFirstOccurence(new Date(year, 4), 0), 1);
+}
+
+export function getJuneteenth(year: number) {
+  return new Date(year, 5, 19);
 }
 
 export function getEaster(year: number) {
@@ -142,6 +147,10 @@ export function getHolidays(year: number): Holidays {
     },
     valentinesDay: {
       date: getValentinesDay(year),
+      bankHoliday: false,
+    },
+    juneteenth: {
+      date: getJuneteenth(year),
       bankHoliday: false,
     },
     easter: {
