@@ -47,7 +47,9 @@ npm i date-fns-holiday-us date-fns
 * [getThanksgiving](README.md#getthanksgiving)
 * [getValentinesDay](README.md#getvalentinesday)
 * [getVeteransDay](README.md#getveteransday)
+* [isBankHoliday](README.md#isbankholiday)
 * [isHoliday](README.md#isholiday)
+* [isInHolidayList](README.md#isinholidaylist)
 
 ## Type aliases
 
@@ -445,17 +447,61 @@ Name | Type |
 
 ___
 
-###  isHoliday
+###  isBankHoliday
 
-▸ **isHoliday**(`date`: Date): *boolean*
+▸ **isBankHoliday**(`date`: Date): *boolean*
 
-*Defined in [index.ts:230](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L230)*
+*Defined in [index.ts:246](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L246)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `date` | Date |
+
+**Returns:** *boolean*
+
+___
+
+###  isHoliday
+
+▸ **isHoliday**(`date`: Date): *boolean*
+
+*Defined in [index.ts:242](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L242)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`date` | Date |
+
+**Returns:** *boolean*
+
+___
+
+###  isInHolidayList
+
+▸ **isInHolidayList**(`date`: Date, `getHolidayList`: function): *boolean*
+
+*Defined in [index.ts:230](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L230)*
+
+**Parameters:**
+
+▪ **date**: *Date*
+
+▪ **getHolidayList**: *function*
+
+▸ (`year`: number): *object*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`year` | number |
+
+* \[ **key**: *string*\]: object
+
+* **date**: *Date*
 
 **Returns:** *boolean*
 
