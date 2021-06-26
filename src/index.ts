@@ -1,4 +1,12 @@
-import { addDays, addWeeks, lastDayOfMonth, getYear, isEqual } from "date-fns";
+import {
+  addDays,
+  addWeeks,
+  lastDayOfMonth,
+  getYear,
+  isEqual,
+  isSaturday,
+  isSunday,
+} from "date-fns";
 
 import { getFirstOccurence, getLastOfMonth } from "./utils";
 
@@ -132,6 +140,7 @@ export type Holidays = {
   [K in Holiday]: {
     date: Date;
     bankHoliday: boolean;
+    observed: boolean;
   };
 };
 
@@ -140,74 +149,92 @@ export function getHolidays(year: number): Holidays {
     newYearsDay: {
       date: getNewYearsDay(year),
       bankHoliday: true,
+      observed: false,
     },
     martinLutherKingJrDay: {
       date: getMartinLutherKingJrDay(year),
       bankHoliday: true,
+      observed: false,
     },
     valentinesDay: {
       date: getValentinesDay(year),
       bankHoliday: false,
+      observed: false,
     },
     juneteenth: {
       date: getJuneteenth(year),
       bankHoliday: false,
+      observed: true,
     },
     easter: {
       date: getEaster(year),
       bankHoliday: false,
+      observed: false,
     },
     presidentsDay: {
       date: getPresidentsDay(year),
       bankHoliday: true,
+      observed: false,
     },
     memorialDay: {
       date: getMemorialDay(year),
       bankHoliday: true,
+      observed: false,
     },
     independenceDay: {
       date: getIndependenceDay(year),
       bankHoliday: true,
+      observed: true,
     },
     laborDay: {
       date: getLaborDay(year),
       bankHoliday: true,
+      observed: false,
     },
     goodFriday: {
       date: getGoodFriday(year),
       bankHoliday: false,
+      observed: false,
     },
     mothersDay: {
       date: getMothersDay(year),
       bankHoliday: false,
+      observed: false,
     },
     columbusDay: {
       date: getColumbusDay(year),
       bankHoliday: true,
+      observed: false,
     },
     halloween: {
       date: getHalloween(year),
       bankHoliday: false,
+      observed: false,
     },
     fathersDay: {
       date: getFathersDay(year),
       bankHoliday: false,
+      observed: false,
     },
     veteransDay: {
       date: getVeteransDay(year),
       bankHoliday: true,
+      observed: false,
     },
     thanksgiving: {
       date: getThanksgiving(year),
       bankHoliday: true,
+      observed: false,
     },
     christmas: {
       date: getChristmas(year),
       bankHoliday: true,
+      observed: false,
     },
     newYearsEve: {
       date: getNewYearsEve(year),
       bankHoliday: false,
+      observed: false,
     },
   };
 }
@@ -234,6 +261,39 @@ export function getBankHolidays(
 
     return acc;
   }, {});
+}
+
+export function getObservedHolidays(
+  year: number
+): Record<string, Record<"date", Date>> {
+  const holidays = getHolidays(year);
+
+  return Object.keys(holidays)
+    .filter(holidayName => {
+      if (holidays[holidayName as Holiday].observed) return true;
+      return false;
+    })
+    .reduce((acc, holidayName) => {
+      const holiday = holidays[holidayName as Holiday];
+      if (isSaturday(holiday.date)) {
+        return {
+          ...acc,
+          [holidayName]: {
+            date: addDays(holiday.date, -1),
+          },
+        };
+      }
+      if (isSunday(holiday.date)) {
+        return {
+          ...acc,
+          [holidayName]: {
+            date: addDays(holiday.date, 1),
+          },
+        };
+      }
+
+      return acc;
+    }, {});
 }
 
 function isInHolidayList(
