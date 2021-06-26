@@ -18,6 +18,7 @@ import {
   getMemorialDay,
   getGoodFriday,
   getBankHolidays,
+  getJuneteenth,
   isHoliday,
 } from "../src";
 
@@ -56,6 +57,15 @@ describe("getBankHolidays", () => {
       newYearsDay: { date: "01-01-2020" },
       memorialDay: { date: "05-25-2020" },
     });
+  });
+});
+
+describe("getJuneteenth", () => {
+  it("returns correct date", () => {
+    expect(format(getJuneteenth(2021), dateFormat)).toEqual("06-19-2021");
+    expect(format(getJuneteenth(2022), dateFormat)).toEqual("06-19-2022");
+    expect(format(getJuneteenth(2023), dateFormat)).toEqual("06-19-2023");
+    expect(format(getJuneteenth(2024), dateFormat)).toEqual("06-19-2024");
   });
 });
 
