@@ -34,6 +34,7 @@ npm i date-fns-holiday-us date-fns
 * [getHalloween](README.md#gethalloween)
 * [getHolidays](README.md#getholidays)
 * [getIndependenceDay](README.md#getindependenceday)
+* [getJuneteenth](README.md#getjuneteenth)
 * [getLaborDay](README.md#getlaborday)
 * [getLastOfMonth](README.md#getlastofmonth)
 * [getMartinLutherKingJrDay](README.md#getmartinlutherkingjrday)
@@ -42,6 +43,7 @@ npm i date-fns-holiday-us date-fns
 * [getNewYearsDay](README.md#getnewyearsday)
 * [getNewYearsEve](README.md#getnewyearseve)
 * [getNextOccurence](README.md#getnextoccurence)
+* [getObservedHolidays](README.md#getobservedholidays)
 * [getPresidentsDay](README.md#getpresidentsday)
 * [getPrevOccurence](README.md#getprevoccurence)
 * [getThanksgiving](README.md#getthanksgiving)
@@ -55,9 +57,9 @@ npm i date-fns-holiday-us date-fns
 
 ###  Holiday
 
-Ƭ **Holiday**: *"christmas" | "easter" | "halloween" | "valentinesDay" | "mothersDay" | "columbusDay" | "independenceDay" | "presidentsDay" | "laborDay" | "veteransDay" | "thanksgiving" | "newYearsEve" | "martinLutherKingJrDay" | "newYearsDay" | "fathersDay" | "memorialDay" | "goodFriday"*
+Ƭ **Holiday**: *"christmas" | "easter" | "halloween" | "valentinesDay" | "mothersDay" | "columbusDay" | "independenceDay" | "presidentsDay" | "laborDay" | "veteransDay" | "thanksgiving" | "newYearsEve" | "martinLutherKingJrDay" | "newYearsDay" | "fathersDay" | "memorialDay" | "goodFriday" | "juneteenth"*
 
-*Defined in [index.ts:5](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L5)*
+*Defined in [index.ts:13](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L13)*
 
 ___
 
@@ -65,7 +67,7 @@ ___
 
 Ƭ **Holidays**: *object*
 
-*Defined in [index.ts:126](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L126)*
+*Defined in [index.ts:139](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L139)*
 
 #### Type declaration:
 
@@ -75,7 +77,7 @@ ___
 
 ▸ **getBankHolidays**(`year`: number): *object*
 
-*Defined in [index.ts:206](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L206)*
+*Defined in [index.ts:242](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L242)*
 
 **Parameters:**
 
@@ -95,7 +97,7 @@ ___
 
 ▸ **getChristmas**(`year`: number): *Date*
 
-*Defined in [index.ts:86](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L86)*
+*Defined in [index.ts:99](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L99)*
 
 **Parameters:**
 
@@ -111,7 +113,7 @@ ___
 
 ▸ **getColumbusDay**(`year`: number): *Date*
 
-*Defined in [index.ts:74](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L74)*
+*Defined in [index.ts:87](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L87)*
 
 **Parameters:**
 
@@ -127,7 +129,7 @@ ___
 
 ▸ **getEaster**(`year`: number): *Date*
 
-*Defined in [index.ts:36](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L36)*
+*Defined in [index.ts:49](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L49)*
 
 **Parameters:**
 
@@ -143,7 +145,7 @@ ___
 
 ▸ **getFathersDay**(`year`: number): *Date*
 
-*Defined in [index.ts:114](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L114)*
+*Defined in [index.ts:127](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L127)*
 
 **Parameters:**
 
@@ -176,7 +178,7 @@ ___
 
 ▸ **getGoodFriday**(`year`: number): *Date*
 
-*Defined in [index.ts:122](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L122)*
+*Defined in [index.ts:135](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L135)*
 
 **Parameters:**
 
@@ -192,7 +194,7 @@ ___
 
 ▸ **getHalloween**(`year`: number): *Date*
 
-*Defined in [index.ts:24](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L24)*
+*Defined in [index.ts:33](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L33)*
 
 **Parameters:**
 
@@ -208,7 +210,7 @@ ___
 
 ▸ **getHolidays**(`year`: number): *[Holidays](README.md#holidays)*
 
-*Defined in [index.ts:133](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L133)*
+*Defined in [index.ts:147](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L147)*
 
 **Parameters:**
 
@@ -224,7 +226,23 @@ ___
 
 ▸ **getIndependenceDay**(`year`: number): *Date*
 
-*Defined in [index.ts:78](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L78)*
+*Defined in [index.ts:91](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L91)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`year` | number |
+
+**Returns:** *Date*
+
+___
+
+###  getJuneteenth
+
+▸ **getJuneteenth**(`year`: number): *Date*
+
+*Defined in [index.ts:45](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L45)*
 
 **Parameters:**
 
@@ -240,7 +258,7 @@ ___
 
 ▸ **getLaborDay**(`year`: number): *Date*
 
-*Defined in [index.ts:90](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L90)*
+*Defined in [index.ts:103](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L103)*
 
 **Parameters:**
 
@@ -273,7 +291,7 @@ ___
 
 ▸ **getMartinLutherKingJrDay**(`year`: number): *Date*
 
-*Defined in [index.ts:106](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L106)*
+*Defined in [index.ts:119](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L119)*
 
 **Parameters:**
 
@@ -289,7 +307,7 @@ ___
 
 ▸ **getMemorialDay**(`year`: number): *Date*
 
-*Defined in [index.ts:118](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L118)*
+*Defined in [index.ts:131](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L131)*
 
 **Parameters:**
 
@@ -305,7 +323,7 @@ ___
 
 ▸ **getMothersDay**(`year`: number): *Date*
 
-*Defined in [index.ts:32](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L32)*
+*Defined in [index.ts:41](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L41)*
 
 **Parameters:**
 
@@ -321,7 +339,7 @@ ___
 
 ▸ **getNewYearsDay**(`year`: number): *Date*
 
-*Defined in [index.ts:110](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L110)*
+*Defined in [index.ts:123](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L123)*
 
 **Parameters:**
 
@@ -337,7 +355,7 @@ ___
 
 ▸ **getNewYearsEve**(`year`: number): *Date*
 
-*Defined in [index.ts:102](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L102)*
+*Defined in [index.ts:115](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L115)*
 
 **Parameters:**
 
@@ -366,11 +384,27 @@ Name | Type |
 
 ___
 
+###  getObservedHolidays
+
+▸ **getObservedHolidays**(`year`: number): *Record‹string, Record‹"date", Date››*
+
+*Defined in [index.ts:266](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L266)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`year` | number |
+
+**Returns:** *Record‹string, Record‹"date", Date››*
+
+___
+
 ###  getPresidentsDay
 
 ▸ **getPresidentsDay**(`year`: number): *Date*
 
-*Defined in [index.ts:82](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L82)*
+*Defined in [index.ts:95](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L95)*
 
 **Parameters:**
 
@@ -403,7 +437,7 @@ ___
 
 ▸ **getThanksgiving**(`year`: number): *Date*
 
-*Defined in [index.ts:98](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L98)*
+*Defined in [index.ts:111](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L111)*
 
 **Parameters:**
 
@@ -419,7 +453,7 @@ ___
 
 ▸ **getValentinesDay**(`year`: number): *Date*
 
-*Defined in [index.ts:28](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L28)*
+*Defined in [index.ts:37](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L37)*
 
 **Parameters:**
 
@@ -435,7 +469,7 @@ ___
 
 ▸ **getVeteransDay**(`year`: number): *Date*
 
-*Defined in [index.ts:94](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L94)*
+*Defined in [index.ts:107](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L107)*
 
 **Parameters:**
 
@@ -451,7 +485,7 @@ ___
 
 ▸ **isBankHoliday**(`date`: Date): *boolean*
 
-*Defined in [index.ts:246](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L246)*
+*Defined in [index.ts:315](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L315)*
 
 **Parameters:**
 
@@ -467,7 +501,7 @@ ___
 
 ▸ **isHoliday**(`date`: Date): *boolean*
 
-*Defined in [index.ts:242](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L242)*
+*Defined in [index.ts:311](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L311)*
 
 **Parameters:**
 
@@ -483,7 +517,7 @@ ___
 
 ▸ **isInHolidayList**(`date`: Date, `getHolidayList`: function): *boolean*
 
-*Defined in [index.ts:230](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L230)*
+*Defined in [index.ts:299](https://github.com/jonstuebe/date-fns-holiday-us/blob/master/src/index.ts#L299)*
 
 **Parameters:**
 
