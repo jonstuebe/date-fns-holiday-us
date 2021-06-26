@@ -20,6 +20,7 @@ import {
   getBankHolidays,
   getJuneteenth,
   isHoliday,
+  isBankHoliday,
 } from "../src";
 
 let dateFormat = "MM-dd-y";
@@ -30,6 +31,15 @@ describe("isHoliday", () => {
   });
   it("returns false on a non holiday", () => {
     expect(isHoliday(new Date(2020, 0, 15))).toEqual(false);
+  });
+});
+
+describe("isBankHoliday", () => {
+  it("returns true on a bank holiday", () => {
+    expect(isBankHoliday(new Date(2020, 0, 1))).toEqual(true);
+  });
+  it("returns false on a non bank holiday", () => {
+    expect(isBankHoliday(new Date(2020, 0, 15))).toEqual(false);
   });
 });
 
