@@ -296,7 +296,7 @@ export function getObservedHolidays(
     }, {});
 }
 
-function isInHolidayList(
+export function isInHolidayList(
   date: Date,
   getHolidayList: (year: number) => { [key: string]: { date: Date } }
 ): boolean {
