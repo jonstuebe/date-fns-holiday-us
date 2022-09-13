@@ -163,7 +163,7 @@ export function getHolidays(year: number): Holidays {
     },
     juneteenth: {
       date: getJuneteenth(year),
-      bankHoliday: year < 2022 ? false : true ,
+      bankHoliday: year < 2022 ? false : true,
       observed: true,
     },
     easter: {
