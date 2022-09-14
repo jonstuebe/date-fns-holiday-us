@@ -29,6 +29,7 @@ npm i date-fns-holiday-us date-fns
 - [getColumbusDay](README.md#getcolumbusday)
 - [getEaster](README.md#geteaster)
 - [getFathersDay](README.md#getfathersday)
+- [getFederalHolidays](README.md#getfederalholidays)
 - [getGoodFriday](README.md#getgoodfriday)
 - [getHalloween](README.md#gethalloween)
 - [getHolidays](README.md#getholidays)
@@ -46,6 +47,7 @@ npm i date-fns-holiday-us date-fns
 - [getValentinesDay](README.md#getvalentinesday)
 - [getVeteransDay](README.md#getveteransday)
 - [isBankHoliday](README.md#isbankholiday)
+- [isFederalHoliday](README.md#isfederalholiday)
 - [isHoliday](README.md#isholiday)
 - [isInHolidayList](README.md#isinholidaylist)
 
@@ -168,6 +170,26 @@ ___
 #### Defined in
 
 [index.ts:127](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L127)
+
+___
+
+### getFederalHolidays
+
+▸ **getFederalHolidays**(`year`): `Object`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `year` | `number` |
+
+#### Returns
+
+`Object`
+
+#### Defined in
+
+[index.ts:264](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L264)
 
 ___
 
@@ -407,7 +429,7 @@ ___
 
 #### Defined in
 
-[index.ts:264](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L264)
+[index.ts:286](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L286)
 
 ___
 
@@ -507,7 +529,27 @@ ___
 
 #### Defined in
 
-[index.ts:313](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L313)
+[index.ts:339](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L339)
+
+___
+
+### isFederalHoliday
+
+▸ **isFederalHoliday**(`date`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `Date` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[index.ts:335](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L335)
 
 ___
 
@@ -527,7 +569,7 @@ ___
 
 #### Defined in
 
-[index.ts:309](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L309)
+[index.ts:331](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L331)
 
 ___
 
@@ -548,6 +590,6 @@ ___
 
 #### Defined in
 
-[index.ts:297](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L297)
+[index.ts:319](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L319)
 
 &copy; 2020 Jon Stuebe
