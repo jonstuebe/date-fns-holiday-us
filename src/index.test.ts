@@ -21,6 +21,9 @@ import {
   getJuneteenth,
   isHoliday,
   isBankHoliday,
+  getObservedHolidays,
+  getFederalHolidays,
+  isFederalHoliday,
 } from "./index";
 
 const dateFormat = "MM-dd-y";
@@ -40,6 +43,41 @@ describe("isBankHoliday", () => {
   });
   it("returns false on a non bank holiday", () => {
     expect(isBankHoliday(new Date(2020, 0, 15))).toEqual(false);
+  });
+});
+
+describe("isFederalHoliday", () => {
+  it("returns true on a federal holiday", () => {
+    expect(isFederalHoliday(getChristmas(2022))).toEqual(true);
+  });
+  it("returns false on a non federal holiday", () => {
+    expect(isFederalHoliday(new Date(2020, 0, 15))).toEqual(false);
+  });
+});
+
+describe("getObservedHolidays", () => {
+  it("returns observed holidays", () => {
+    const observedHolidays = getObservedHolidays(2022);
+    expect(
+      Object.keys(observedHolidays).reduce((acc, holiday) => {
+        return {
+          ...acc,
+          [holiday]: {
+            date: format(observedHolidays[holiday].date, dateFormat),
+          },
+        };
+      }, {})
+    ).toStrictEqual({
+      christmas: {
+        date: "12-26-2022",
+      },
+      juneteenth: {
+        date: "06-20-2022",
+      },
+      newYearsDay: {
+        date: "12-31-2021",
+      },
+    });
   });
 });
 
@@ -66,6 +104,33 @@ describe("getBankHolidays", () => {
       martinLutherKingJrDay: { date: "01-20-2020" },
       newYearsDay: { date: "01-01-2020" },
       memorialDay: { date: "05-25-2020" },
+    });
+  });
+});
+
+describe("getFederalHolidays", () => {
+  it("returns all bank holidays", () => {
+    const federalHolidays = getFederalHolidays(2022);
+    expect(
+      Object.keys(federalHolidays).reduce((acc, federalHoliday) => {
+        return {
+          ...acc,
+          [federalHoliday]: {
+            date: format(federalHolidays[federalHoliday].date, dateFormat),
+          },
+        };
+      }, {})
+    ).toEqual({
+      christmas: { date: "12-25-2022" },
+      columbusDay: { date: "10-10-2022" },
+      juneteenth: { date: "06-19-2022" },
+      independenceDay: { date: "07-04-2022" },
+      laborDay: { date: "09-05-2022" },
+      veteransDay: { date: "11-11-2022" },
+      thanksgiving: { date: "11-24-2022" },
+      martinLutherKingJrDay: { date: "01-17-2022" },
+      newYearsDay: { date: "01-01-2022" },
+      memorialDay: { date: "05-30-2022" },
     });
   });
 });
