@@ -27,7 +27,7 @@ exec(
       let apiDoc = fs.readFileSync(generatedFilePath, { encoding: "utf8" });
       apiDoc = apiDoc.replace("## Index", "## API");
       apiDoc = apiDoc.replace(`# ${name}`, "");
-      apiDoc = apiDoc.replace(/(blob)\/([a-zA-Z0-9]*)/gm, "$1/master");
+      apiDoc = apiDoc.replace(/(blob)\/([a-zA-Z0-9]*)/gm, "$1/main");
       apiDoc = apiDoc.trim();
       fs.writeFileSync(
         readmePath,
