@@ -21,9 +21,9 @@ import {
   getJuneteenth,
   isHoliday,
   isBankHoliday,
-} from "../src";
+} from "./index";
 
-let dateFormat = "MM-dd-y";
+const dateFormat = "MM-dd-y";
 
 describe("isHoliday", () => {
   it("returns true on a holiday", () => {

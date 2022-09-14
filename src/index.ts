@@ -239,9 +239,7 @@ export function getHolidays(year: number): Holidays {
   };
 }
 
-export function getBankHolidays(
-  year: number
-): {
+export function getBankHolidays(year: number): {
   [key: string]: {
     date: Date;
   };
@@ -269,7 +267,7 @@ export function getObservedHolidays(
   const holidays = getHolidays(year);
 
   return Object.keys(holidays)
-    .filter(holidayName => {
+    .filter((holidayName) => {
       if (holidays[holidayName as Holiday].observed) return true;
       return false;
     })
@@ -302,7 +300,7 @@ export function isInHolidayList(
 ): boolean {
   const holidays = getHolidayList(getYear(date));
   return (
-    Object.keys(holidays).filter(holidayName => {
+    Object.keys(holidays).filter((holidayName) => {
       return isEqual(date, holidays[holidayName].date);
     }).length > 0
   );

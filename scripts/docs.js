@@ -7,17 +7,17 @@ const readmeTemplate = require("../readme");
 const pkg = require("../package.json");
 
 const basePath = path.join(__dirname, "..");
-const generatedDocsPath = path.join(basePath, "_docs");
+const generatedDocsPath = path.join(basePath, "docs");
 const generatedFilePath = path.join(generatedDocsPath, "README.md");
 const readmePath = path.join(basePath, "README.md");
 
 console.log(chalk.green("1. Parsing Typescript source..."));
 exec(
-  "yarn typedoc --excludeNotExported --mode file --readme none --hideBreadcrumbs --out _docs src",
+  "yarn typedoc  --readme none --hideBreadcrumbs --out docs src",
   {
     cwd: basePath,
   },
-  err => {
+  (err) => {
     if (err) {
       console.clear();
       console.error(chalk.red(err.message));
@@ -42,9 +42,9 @@ exec(
       );
 
       console.log(chalk.green("3. Cleaning up..."));
-      exec("yarn rimraf _docs", { cwd: basePath }, err => {
+      exec("yarn rimraf docs", { cwd: basePath }, (err) => {
         if (err) {
-          console.warn("Error deleting temporary _docs directory");
+          console.warn("Error deleting temporary docs directory");
         }
         console.log(chalk.green("4. Finished generating README.md"));
       });
