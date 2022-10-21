@@ -5,13 +5,13 @@
   "author": "Jon Stuebe",
   "license": "MIT",
   "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "browser": "dist/iife/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.global.js",
   "typings": "dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/esm/index.js",
+      "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
