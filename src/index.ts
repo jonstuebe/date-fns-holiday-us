@@ -6,6 +6,7 @@ import {
   isEqual,
   isSaturday,
   isSunday,
+  isSameDay,
 } from "date-fns";
 
 import { getFirstOccurence, getLastOfMonth } from "./utils";
@@ -323,7 +324,7 @@ export function isInHolidayList(
   const holidays = getHolidayList(getYear(date));
   return (
     Object.keys(holidays).filter((holidayName) => {
-      return isEqual(date, holidays[holidayName].date);
+      return isSameDay(date, holidays[holidayName].date);
     }).length > 0
   );
 }
