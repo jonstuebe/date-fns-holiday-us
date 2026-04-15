@@ -12,7 +12,7 @@ import { getFirstOccurence, getLastOfMonth } from "./utils";
 
 export type Holiday =
   | "blackFriday"
-  | "christmas"
+  | "christmasDay"
   | "christmasEve"
   | "easter"
   | "halloween"
@@ -102,7 +102,7 @@ export function getPresidentsDay(year: number) {
   return addWeeks(getFirstOccurence(new Date(year, 1), 1), 2);
 }
 
-export function getChristmas(year: number) {
+export function getChristmasDay(year: number) {
   return new Date(year, 11, 25);
 }
 
@@ -241,8 +241,8 @@ export function getHolidays(year: number): Holidays {
       bankHoliday: false,
       federal: false,
     },
-    christmas: {
-      date: getChristmas(year),
+    christmasDay: {
+      date: getChristmasDay(year),
       bankHoliday: true,
       federal: true,
     },
