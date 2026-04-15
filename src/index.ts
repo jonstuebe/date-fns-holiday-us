@@ -11,7 +11,9 @@ import {
 import { getFirstOccurence, getLastOfMonth } from "./utils";
 
 export type Holiday =
+  | "blackFriday"
   | "christmas"
+  | "christmasEve"
   | "easter"
   | "halloween"
   | "valentinesDay"
@@ -29,6 +31,10 @@ export type Holiday =
   | "memorialDay"
   | "goodFriday"
   | "juneteenth";
+
+export function getBlackFriday(year: number) {
+  return addDays(getThanksgiving(year), 1);
+}
 
 export function getHalloween(year: number) {
   return new Date(year, 9, 31);
@@ -98,6 +104,10 @@ export function getPresidentsDay(year: number) {
 
 export function getChristmas(year: number) {
   return new Date(year, 11, 25);
+}
+
+export function getChristmasEve(year: number) {
+  return new Date(year, 11, 24);
 }
 
 export function getLaborDay(year: number) {
@@ -226,10 +236,20 @@ export function getHolidays(year: number): Holidays {
       bankHoliday: true,
       federal: true,
     },
+    blackFriday: {
+      date: getBlackFriday(year),
+      bankHoliday: false,
+      federal: false,
+    },
     christmas: {
       date: getChristmas(year),
       bankHoliday: true,
       federal: true,
+    },
+    christmasEve: {
+      date: getChristmasEve(year),
+      bankHoliday: false,
+      federal: false,
     },
     newYearsEve: {
       date: getNewYearsEve(year),
