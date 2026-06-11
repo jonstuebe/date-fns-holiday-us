@@ -1,16 +1,45 @@
-name: Lint, Test, & Build
+name: Pipeline
 
-on: push
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches:
+      - '*'
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x, 24.x]
+      fail-fast: true
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: 16
-      - run: yarn install
-      - run: npm run lint
-      - run: npm run test
-      - run: npm run build
+          node-version: ${{ matrix.node-version }}
+
+      - name: Enable pnpm via corepack
+        run: corepack enable pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run lint and format
+        run: pnpm check
+
+      - name: Run tests with coverage
+        run: pnpm test --coverage
