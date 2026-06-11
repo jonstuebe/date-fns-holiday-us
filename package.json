@@ -32,7 +32,6 @@
     "build": "tsup",
     "test": "vitest run",
     "lint": "eslint ./src",
-    "docs": "node scripts/docs",
     "prepublishOnly": "yarn build && yarn docs"
   },
   "peerDependencies": {
