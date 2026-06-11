@@ -3,6 +3,7 @@ import {
   addWeeks,
   getYear,
   isEqual,
+  isSameDay,
   isSaturday,
   isSunday,
   lastDayOfMonth,
@@ -278,7 +279,9 @@ export function isInHolidayList(
 ): boolean {
   const holidays = getHolidayList(getYear(date));
 
-  return Object.values(holidays).some((holiday) => isEqual(date, holiday.date));
+  return Object.values(holidays).some((holiday) =>
+    isSameDay(date, holiday.date),
+  );
 }
 
 export function isHoliday(date: Date): boolean {
