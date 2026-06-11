@@ -1,21 +1,10 @@
 {
-  "name": "date-fns-holiday-us",
+  "name": "date-fns-holidays",
   "description": "The purpose of this project is to give an interface to work with holidays using date-fns",
   "version": "1.1.0",
-  "author": "Jon Stuebe",
+  "author": "Khiet Tam Nguyen",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
-  "browser": "dist/iife/index.js",
-  "typings": "dist/index.d.ts",
   "type": "module",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/esm/index.js",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "keywords": [
     "date-fns",
     "date",
@@ -23,13 +12,13 @@
     "holidays"
   ],
   "repository": {
-    "url": "https://github.com/jonstuebe/date-fns-holiday-us"
+    "url": "https://github.com/nktnet1/date-fns-holidays"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "start": "tsdownup --watch",
+    "start": "tsdown --watch",
     "build": "tsdown",
     "test": "vitest run",
     "lint": "biome lint",
@@ -47,5 +36,15 @@
     "tsdown": "^0.22.2",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
   }
 }
