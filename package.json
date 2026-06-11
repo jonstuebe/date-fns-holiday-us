@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
+    "@vitest/coverage-v8": "^4.1.8",
     "date-fns": "^4.4.0",
     "tsdown": "^0.22.2",
     "typescript": "^6.0.3",

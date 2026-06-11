@@ -59,6 +59,7 @@ export function getEaster(year: number) {
 
   function div(a: number, b: number) {
     const q = a / b;
+    /* v8 ignore next */
     if (q < 0) {
       throw new Error("Unexpected negative q");
     }

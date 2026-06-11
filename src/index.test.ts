@@ -185,6 +185,10 @@ describe("getHalloween", () => {
 });
 
 describe("getEaster", () => {
+  it("throws for years prior to 325", () => {
+    expect(() => format(getEaster(324), dateFormat)).toThrow();
+  });
+
   it("returns correct date", () => {
     expect(format(getEaster(2020), dateFormat)).toEqual("04-12-2020");
     expect(format(getEaster(2021), dateFormat)).toEqual("04-04-2021");
