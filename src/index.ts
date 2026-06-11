@@ -1,11 +1,11 @@
 import {
   addDays,
   addWeeks,
-  lastDayOfMonth,
   getYear,
   isEqual,
   isSaturday,
   isSunday,
+  lastDayOfMonth,
 } from "date-fns";
 
 import { getFirstOccurence, getLastOfMonth } from "./utils";
@@ -29,6 +29,8 @@ export type Holiday =
   | "memorialDay"
   | "goodFriday"
   | "juneteenth";
+
+export type HolidayList = Record<string, { date: Date }>;
 
 export function getHalloween(year: number) {
   return new Date(year, 9, 31);
@@ -57,6 +59,7 @@ export function getEaster(year: number) {
 
   function div(a: number, b: number) {
     const q = a / b;
+    /* v8 ignore next */
     if (q < 0) {
       throw new Error("Unexpected negative q");
     }
@@ -163,7 +166,7 @@ export function getHolidays(year: number): Holidays {
     },
     juneteenth: {
       date: getJuneteenth(year),
-      bankHoliday: year < 2022 ? false : true,
+      bankHoliday: !(year < 2022),
       federal: true,
     },
     easter: {
@@ -239,93 +242,43 @@ export function getHolidays(year: number): Holidays {
   };
 }
 
-export function getBankHolidays(year: number): {
-  [key: string]: {
-    date: Date;
-  };
-} {
-  const holidays = getHolidays(year);
-
-  return Object.keys(holidays).reduce((acc, holidayName) => {
-    const holiday = holidays[holidayName as Holiday];
-    if (holiday.bankHoliday) {
-      return {
-        ...acc,
-        [holidayName]: {
-          date: holiday.date,
-        },
-      };
-    }
-
-    return acc;
-  }, {});
+export function getBankHolidays(year: number): HolidayList {
+  return filterHolidays(year, (holiday) => holiday.bankHoliday);
 }
 
-export function getFederalHolidays(year: number): {
-  [key: string]: {
-    date: Date;
-  };
-} {
-  const holidays = getHolidays(year);
-
-  return Object.keys(holidays).reduce((acc, holidayName) => {
-    const holiday = holidays[holidayName as Holiday];
-    if (holiday.federal) {
-      return {
-        ...acc,
-        [holidayName]: {
-          date: holiday.date,
-        },
-      };
-    }
-
-    return acc;
-  }, {});
+export function getFederalHolidays(year: number): HolidayList {
+  return filterHolidays(year, (holiday) => holiday.federal);
 }
 
-export function getObservedHolidays(
-  year: number
-): Record<string, Record<"date", Date>> {
-  const holidays = getHolidays(year);
+export function getObservedHolidays(year: number): HolidayList {
+  const result: HolidayList = {};
 
-  return Object.keys(holidays)
-    .filter((holidayName) => {
-      if (holidays[holidayName as Holiday].federal) return true;
-      return false;
-    })
-    .reduce((acc, holidayName) => {
-      const holiday = holidays[holidayName as Holiday];
-      if (isSaturday(holiday.date)) {
-        return {
-          ...acc,
-          [holidayName]: {
-            date: addDays(holiday.date, -1),
-          },
-        };
-      }
-      if (isSunday(holiday.date)) {
-        return {
-          ...acc,
-          [holidayName]: {
-            date: addDays(holiday.date, 1),
-          },
-        };
-      }
+  for (const [name, holiday] of Object.entries(getHolidays(year))) {
+    if (!holiday.federal) {
+      continue;
+    }
 
-      return acc;
-    }, {});
+    if (isSaturday(holiday.date)) {
+      result[name] = {
+        date: addDays(holiday.date, -1),
+      };
+    } else if (isSunday(holiday.date)) {
+      result[name] = {
+        date: addDays(holiday.date, 1),
+      };
+    }
+  }
+
+  return result;
 }
 
 export function isInHolidayList(
   date: Date,
-  getHolidayList: (year: number) => { [key: string]: { date: Date } }
+  getHolidayList: (year: number) => HolidayList,
 ): boolean {
   const holidays = getHolidayList(getYear(date));
-  return (
-    Object.keys(holidays).filter((holidayName) => {
-      return isEqual(date, holidays[holidayName].date);
-    }).length > 0
-  );
+
+  return Object.values(holidays).some((holiday) => isEqual(date, holiday.date));
 }
 
 export function isHoliday(date: Date): boolean {
@@ -338,4 +291,21 @@ export function isFederalHoliday(date: Date): boolean {
 
 export function isBankHoliday(date: Date): boolean {
   return isInHolidayList(date, getBankHolidays);
+}
+
+function filterHolidays(
+  year: number,
+  predicate: (holiday: Holidays[Holiday]) => boolean,
+): HolidayList {
+  const result: HolidayList = {};
+
+  for (const [name, holiday] of Object.entries(getHolidays(year))) {
+    if (predicate(holiday)) {
+      result[name] = {
+        date: holiday.date,
+      };
+    }
+  }
+
+  return result;
 }
