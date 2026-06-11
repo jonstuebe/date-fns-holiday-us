@@ -59,15 +59,16 @@ describe("isFederalHoliday", () => {
 describe("getObservedHolidays", () => {
   it("returns observed holidays", () => {
     const observedHolidays = getObservedHolidays(2022);
+
     expect(
-      Object.keys(observedHolidays).reduce((acc, holiday) => {
-        return {
-          ...acc,
-          [holiday]: {
-            date: format(observedHolidays[holiday].date, dateFormat),
+      Object.fromEntries(
+        Object.entries(observedHolidays).map(([name, holiday]) => [
+          name,
+          {
+            date: format(holiday.date, dateFormat),
           },
-        };
-      }, {}),
+        ]),
+      ),
     ).toStrictEqual({
       christmas: {
         date: "12-26-2022",
@@ -85,15 +86,16 @@ describe("getObservedHolidays", () => {
 describe("getBankHolidays", () => {
   it("returns all bank holidays", () => {
     const bankHolidays = getBankHolidays(2020);
+
     expect(
-      Object.keys(bankHolidays).reduce((acc, bankHoliday) => {
-        return {
-          ...acc,
-          [bankHoliday]: {
-            date: format(bankHolidays[bankHoliday].date, dateFormat),
+      Object.fromEntries(
+        Object.entries(bankHolidays).map(([name, holiday]) => [
+          name,
+          {
+            date: format(holiday.date, dateFormat),
           },
-        };
-      }, {}),
+        ]),
+      ),
     ).toEqual({
       christmas: { date: "12-25-2020" },
       columbusDay: { date: "10-12-2020" },
@@ -110,17 +112,18 @@ describe("getBankHolidays", () => {
 });
 
 describe("getFederalHolidays", () => {
-  it("returns all bank holidays", () => {
+  it("returns all federal holidays", () => {
     const federalHolidays = getFederalHolidays(2022);
+
     expect(
-      Object.keys(federalHolidays).reduce((acc, federalHoliday) => {
-        return {
-          ...acc,
-          [federalHoliday]: {
-            date: format(federalHolidays[federalHoliday].date, dateFormat),
+      Object.fromEntries(
+        Object.entries(federalHolidays).map(([name, holiday]) => [
+          name,
+          {
+            date: format(holiday.date, dateFormat),
           },
-        };
-      }, {}),
+        ]),
+      ),
     ).toEqual({
       christmas: { date: "12-25-2022" },
       columbusDay: { date: "10-10-2022" },
