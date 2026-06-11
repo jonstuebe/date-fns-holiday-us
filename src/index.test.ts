@@ -1,30 +1,30 @@
-import { describe, expect, it } from "vitest";
 import { format } from "date-fns";
+import { describe, expect, it } from "vitest";
 import {
-  getChristmas,
-  getEaster,
-  getHalloween,
-  getValentinesDay,
-  getMothersDay,
-  getColumbusDay,
-  getIndependenceDay,
-  getPresidentsDay,
-  getLaborDay,
-  getVeteransDay,
-  getThanksgiving,
-  getNewYearsEve,
-  getMartinLutherKingJrDay,
-  getNewYearsDay,
-  getFathersDay,
-  getMemorialDay,
-  getGoodFriday,
   getBankHolidays,
-  getJuneteenth,
-  isHoliday,
-  isBankHoliday,
-  getObservedHolidays,
+  getChristmas,
+  getColumbusDay,
+  getEaster,
+  getFathersDay,
   getFederalHolidays,
+  getGoodFriday,
+  getHalloween,
+  getIndependenceDay,
+  getJuneteenth,
+  getLaborDay,
+  getMartinLutherKingJrDay,
+  getMemorialDay,
+  getMothersDay,
+  getNewYearsDay,
+  getNewYearsEve,
+  getObservedHolidays,
+  getPresidentsDay,
+  getThanksgiving,
+  getValentinesDay,
+  getVeteransDay,
+  isBankHoliday,
   isFederalHoliday,
+  isHoliday,
 } from "./index";
 
 const dateFormat = "MM-dd-y";
@@ -67,7 +67,7 @@ describe("getObservedHolidays", () => {
             date: format(observedHolidays[holiday].date, dateFormat),
           },
         };
-      }, {})
+      }, {}),
     ).toStrictEqual({
       christmas: {
         date: "12-26-2022",
@@ -93,7 +93,7 @@ describe("getBankHolidays", () => {
             date: format(bankHolidays[bankHoliday].date, dateFormat),
           },
         };
-      }, {})
+      }, {}),
     ).toEqual({
       christmas: { date: "12-25-2020" },
       columbusDay: { date: "10-12-2020" },
@@ -120,7 +120,7 @@ describe("getFederalHolidays", () => {
             date: format(federalHolidays[federalHoliday].date, dateFormat),
           },
         };
-      }, {})
+      }, {}),
     ).toEqual({
       christmas: { date: "12-25-2022" },
       columbusDay: { date: "10-10-2022" },
@@ -256,16 +256,16 @@ describe("getNewYearsEve", () => {
 describe("getMartinLutherKingJrDay", () => {
   it("returns correct date", () => {
     expect(format(getMartinLutherKingJrDay(2020), dateFormat)).toEqual(
-      "01-20-2020"
+      "01-20-2020",
     );
     expect(format(getMartinLutherKingJrDay(2021), dateFormat)).toEqual(
-      "01-18-2021"
+      "01-18-2021",
     );
     expect(format(getMartinLutherKingJrDay(2022), dateFormat)).toEqual(
-      "01-17-2022"
+      "01-17-2022",
     );
     expect(format(getMartinLutherKingJrDay(2023), dateFormat)).toEqual(
-      "01-16-2023"
+      "01-16-2023",
     );
   });
 });

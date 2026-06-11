@@ -1,11 +1,11 @@
 import {
   addDays,
   addWeeks,
-  lastDayOfMonth,
   getYear,
   isEqual,
   isSaturday,
   isSunday,
+  lastDayOfMonth,
 } from "date-fns";
 
 import { getFirstOccurence, getLastOfMonth } from "./utils";
@@ -163,7 +163,7 @@ export function getHolidays(year: number): Holidays {
     },
     juneteenth: {
       date: getJuneteenth(year),
-      bankHoliday: year < 2022 ? false : true,
+      bankHoliday: !(year < 2022),
       federal: true,
     },
     easter: {
@@ -284,7 +284,7 @@ export function getFederalHolidays(year: number): {
 }
 
 export function getObservedHolidays(
-  year: number
+  year: number,
 ): Record<string, Record<"date", Date>> {
   const holidays = getHolidays(year);
 
@@ -318,7 +318,7 @@ export function getObservedHolidays(
 
 export function isInHolidayList(
   date: Date,
-  getHolidayList: (year: number) => { [key: string]: { date: Date } }
+  getHolidayList: (year: number) => { [key: string]: { date: Date } },
 ): boolean {
   const holidays = getHolidayList(getYear(date));
   return (

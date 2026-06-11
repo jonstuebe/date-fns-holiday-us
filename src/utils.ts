@@ -1,8 +1,8 @@
 import {
-  getDay as getDayOfWeek,
-  setDate as setDayOfMonth,
   addDays,
+  getDay as getDayOfWeek,
   lastDayOfMonth,
+  setDate as setDayOfMonth,
 } from "date-fns";
 
 export function getFirstOccurence(date: Date, dayOfWeekIndex: number) {
