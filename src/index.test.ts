@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { describe, expect, it } from "vitest";
+
 import {
   getBankHolidays,
   getChristmas,
@@ -25,7 +26,7 @@ import {
   isBankHoliday,
   isFederalHoliday,
   isHoliday,
-} from "./index";
+} from ".";
 
 const dateFormat = "MM-dd-y";
 

@@ -46,5 +46,6 @@
       "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
-  }
+  },
+  "packageManager": "pnpm@11.5.3"
 }
