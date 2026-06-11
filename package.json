@@ -8,6 +8,7 @@
   "module": "dist/esm/index.js",
   "browser": "dist/iife/index.js",
   "typings": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -41,9 +42,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
-    "date-fns": "^2.29.3",
+    "date-fns": "^4.4.0",
     "tsdown": "^0.22.2",
-    "typescript": "^4.8.3",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.8"
   }
 }
