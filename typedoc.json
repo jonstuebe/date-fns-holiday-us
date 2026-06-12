@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/typedoc-plugin-markdown/typedoc-plugin-markdown.schema.json",
+  "plugin": ["typedoc-plugin-markdown"],
+  "entryPoints": ["./src/index.ts"],
+  "gitRevision": "main",
+  "hidePageHeader": true,
+  "out": "./docs",
+  "readme": "assets/BASE.md",
+  "enumMembersFormat": "table",
+  "indexFormat": "table",
+  "mergeReadme": true,
+  "parametersFormat": "table",
+  "router": "module",
+  "typeDeclarationFormat": "table",
+  "useCodeBlocks": true,
+  "externalSymbolLinkMappings": {
+    "typescript": {
+      "Date": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date"
+    }
+  }
+}
