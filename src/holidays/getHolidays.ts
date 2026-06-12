@@ -18,6 +18,21 @@ import { getThanksgiving } from "./getThanksgiving";
 import { getValentinesDay } from "./getValentinesDay";
 import { getVeteransDay } from "./getVeteransDay";
 
+/**
+ * Returns the complete set of supported holidays for the specified year.
+ *
+ * @remarks
+ * Each holiday entry contains its calculated date together with metadata
+ * indicating whether it is recognized as a federal holiday and/or a bank
+ * holiday.
+ *
+ * Holiday observance classifications may vary by jurisdiction and may change
+ * over time. The values returned by this function reflect the rules implemented
+ * by this library.
+ *
+ * @param year - The year for which to generate holiday information.
+ * @returns An object containing all supported holidays and their metadata.
+ */
 export function getHolidays(year: number): Holidays {
   return {
     newYearsDay: {
