@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/typedoc-plugin-markdown/typedoc-plugin-markdown.schema.json",
-  "plugin": ["typedoc-plugin-markdown"],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-remark"],
   "entryPoints": ["./src/index.ts"],
   "gitRevision": "main",
   "hidePageHeader": true,
@@ -13,6 +13,14 @@
   "router": "module",
   "typeDeclarationFormat": "table",
   "useCodeBlocks": true,
+  "remarkPlugins": [
+    [
+      "remark-github",
+      { "repository": "https://github.com/typedoc2md/typedoc-plugin-markdown" }
+    ],
+    ["remark-insert-headings", { "text": "Table of Contents" }],
+    ["remark-toc", { "maxDepth": 3 }]
+  ],
   "externalSymbolLinkMappings": {
     "typescript": {
       "Date": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date"

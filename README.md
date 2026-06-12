@@ -2,9 +2,49 @@
 
 This project is fork of:
 
-- https://github.com/jonstuebe/date-fns-holiday-us
+* https://github.com/jonstuebe/date-fns-holiday-us
 
 The API will be the same as the original project, with the primary focus being bug fixes.
+
+## Table of Contents
+
+* [Install](#install)
+* [Type Aliases](#type-aliases)
+  * [Holiday](#holiday)
+  * [HolidayList](#holidaylist)
+  * [Holidays](#holidays)
+* [Functions](#functions)
+  * [filterHolidays()](#filterholidays)
+  * [getBankHolidays()](#getbankholidays)
+  * [getChristmas()](#getchristmas)
+  * [getColumbusDay()](#getcolumbusday)
+  * [getEaster()](#geteaster)
+  * [getFathersDay()](#getfathersday)
+  * [getFederalHolidays()](#getfederalholidays)
+  * [getFirstOccurrence()](#getfirstoccurrence)
+  * [getGoodFriday()](#getgoodfriday)
+  * [getHalloween()](#gethalloween)
+  * [getHolidays()](#getholidays)
+  * [getIndependenceDay()](#getindependenceday)
+  * [getJuneteenth()](#getjuneteenth)
+  * [getLaborDay()](#getlaborday)
+  * [getLastOfMonth()](#getlastofmonth)
+  * [getMartinLutherKingJrDay()](#getmartinlutherkingjrday)
+  * [getMemorialDay()](#getmemorialday)
+  * [getMothersDay()](#getmothersday)
+  * [getNewYearsDay()](#getnewyearsday)
+  * [getNewYearsEve()](#getnewyearseve)
+  * [getNextOccurrence()](#getnextoccurrence)
+  * [getObservedHolidays()](#getobservedholidays)
+  * [getPresidentsDay()](#getpresidentsday)
+  * [getPrevOccurrence()](#getprevoccurrence)
+  * [getThanksgiving()](#getthanksgiving)
+  * [getValentinesDay()](#getvalentinesday)
+  * [getVeteransDay()](#getveteransday)
+  * [isBankHoliday()](#isbankholiday)
+  * [isFederalHoliday()](#isfederalholiday)
+  * [isHoliday()](#isholiday)
+  * [isInHolidayList()](#isinholidaylist)
 
 ## Install
 
@@ -80,9 +120,10 @@ Complete set of holidays returned by [getHolidays](#getholidays).
 #### Remarks
 
 Each entry includes:
-- `date`: computed holiday date
-- `bankHoliday`: whether the holiday is observed by banks
-- `federal`: whether the holiday is a U.S. federal holiday
+
+* `date`: computed holiday date
+* `bankHoliday`: whether the holiday is observed by banks
+* `federal`: whether the holiday is a U.S. federal holiday
 
 ## Functions
 
@@ -733,8 +774,9 @@ A [HolidayList](#holidaylist) containing observed federal holiday dates.
 
 This function adjusts federal holidays that fall on weekends to their
 observed dates:
-- Saturday holidays are observed on the preceding Friday
-- Sunday holidays are observed on the following Monday
+
+* Saturday holidays are observed on the preceding Friday
+* Sunday holidays are observed on the following Monday
 
 Only holidays marked as `federal: true` are included in the result.
 
