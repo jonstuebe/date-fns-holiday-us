@@ -41,5 +41,8 @@ jobs:
       - name: Run lint and format
         run: pnpm check
 
+      - name: Run typecheck and bundle
+        run: pnpm typecheck && pnpm build
+
       - name: Run tests with coverage
         run: pnpm test --coverage
