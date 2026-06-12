@@ -40,6 +40,7 @@ export function getPrevOccurence(date: Date, dayOfWeekIndex: number) {
 export function getLastOfMonth(date: Date, dayOfWeekIndex: number) {
   return getPrevOccurence(lastDayOfMonth(date), dayOfWeekIndex);
 }
+
 export function filterHolidays(
   year: number,
   predicate: (holiday: Holidays[Holiday]) => boolean,

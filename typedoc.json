@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/typedoc-plugin-markdown/typedoc-plugin-markdown.schema.json",
+  "plugin": ["typedoc-plugin-markdown"],
+  "entryPoints": ["./src/index.ts"],
+  "gitRevision": "main",
+  "out": "./docs",
+  "readme": "assets/BASE.md",
+  "enumMembersFormat": "table",
+  "indexFormat": "table",
+  "mergeReadme": true,
+  "parametersFormat": "table",
+  "router": "module",
+  "typeDeclarationFormat": "table",
+  "useCodeBlocks": true
+}
