@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import {
-  getChristmas,
+  getChristmasDay,
   getEaster,
   getHalloween,
   getValentinesDay,
@@ -48,7 +48,7 @@ describe("isBankHoliday", () => {
 
 describe("isFederalHoliday", () => {
   it("returns true on a federal holiday", () => {
-    expect(isFederalHoliday(getChristmas(2022))).toEqual(true);
+    expect(isFederalHoliday(getChristmasDay(2022))).toEqual(true);
   });
   it("returns false on a non federal holiday", () => {
     expect(isFederalHoliday(new Date(2020, 0, 15))).toEqual(false);
@@ -68,7 +68,7 @@ describe("getObservedHolidays", () => {
         };
       }, {})
     ).toStrictEqual({
-      christmas: {
+      christmasDay: {
         date: "12-26-2022",
       },
       juneteenth: {
@@ -94,7 +94,7 @@ describe("getBankHolidays", () => {
         };
       }, {})
     ).toEqual({
-      christmas: { date: "12-25-2020" },
+      christmasDay: { date: "12-25-2020" },
       columbusDay: { date: "10-12-2020" },
       independenceDay: { date: "07-04-2020" },
       presidentsDay: { date: "02-17-2020" },
@@ -121,7 +121,7 @@ describe("getFederalHolidays", () => {
         };
       }, {})
     ).toEqual({
-      christmas: { date: "12-25-2022" },
+      christmasDay: { date: "12-25-2022" },
       columbusDay: { date: "10-10-2022" },
       juneteenth: { date: "06-19-2022" },
       independenceDay: { date: "07-04-2022" },
@@ -146,10 +146,10 @@ describe("getJuneteenth", () => {
 
 describe("getChristmas", () => {
   it("returns correct date", () => {
-    expect(format(getChristmas(2020), dateFormat)).toEqual("12-25-2020");
-    expect(format(getChristmas(2021), dateFormat)).toEqual("12-25-2021");
-    expect(format(getChristmas(2022), dateFormat)).toEqual("12-25-2022");
-    expect(format(getChristmas(2023), dateFormat)).toEqual("12-25-2023");
+    expect(format(getChristmasDay(2020), dateFormat)).toEqual("12-25-2020");
+    expect(format(getChristmasDay(2021), dateFormat)).toEqual("12-25-2021");
+    expect(format(getChristmasDay(2022), dateFormat)).toEqual("12-25-2022");
+    expect(format(getChristmasDay(2023), dateFormat)).toEqual("12-25-2023");
   });
 });
 
