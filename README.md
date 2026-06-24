@@ -25,8 +25,9 @@ npm i date-fns-holiday-us date-fns
 ### Functions
 
 - [getBankHolidays](README.md#getbankholidays)
-- [getChristmasDay](README.md#getchristmasDay)
-- [getChristmasEve](README.md#getchristmasDay)
+- [getBlackFriday](README.md#getblackfriday)
+- [getChristmasDay](README.md#getchristmasday)
+- [getChristmasEve](README.md#getchristmaseve)
 - [getColumbusDay](README.md#getcolumbusday)
 - [getEaster](README.md#geteaster)
 - [getFathersDay](README.md#getfathersday)
@@ -70,7 +71,7 @@ ___
 
 #### Defined in
 
-[index.ts:157](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L157)
+[index.ts:149](https://github.com/jonstuebe/date-fns-holiday-us/blob/main/src/index.ts#L149)
 
 ## Functions
 
